@@ -1,0 +1,49 @@
+**FREE
+
+Dcl-pr bieresGet Pointer Extproc;
+  pSearch Pointer Value Options(*String:*Nopass);
+  pPage Int(5) Const Options(*Nopass);
+  pPerPage Int(5) Const Options(*Nopass);
+END-PR;
+
+Dcl-pr bieresSucces Ind Extproc;
+End-pr;
+
+
+Dcl-PR bieresCount Int(10)  Extproc;
+  pArray Pointer;
+END-PR;
+
+Dcl-PR bieresElementAt Pointer  Extproc;
+  pArray Pointer;
+  PRndex Int(5) Const;
+END-PR;
+
+Dcl-PR bieresStringAt Varchar(256) Extproc;
+  pObject Pointer;
+  pProperty Pointer Value Options(*String:*Nopass);
+END-PR;
+
+Dcl-pr bieresFermeture Extproc;
+  pJson Pointer;
+END-Pr;
+
+Dcl-pr biereGetId Int(10) Extproc;
+  pObject Pointer;
+END-PR;
+
+Dcl-pr biereGetName Varchar(50) Extproc;
+  pObject Pointer;
+END-PR;
+
+Dcl-pr biereGetTagLine Varchar(50) Extproc;
+  pObject Pointer;
+END-PR;
+
+Dcl-pr biereGetDateBrassage date Extproc;
+  pObject Pointer;
+END-PR;
+
+Dcl-pr biereGetDescription Varchar(256) Extproc;
+  pObject Pointer;
+END-PR;
