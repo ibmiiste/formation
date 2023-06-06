@@ -47,3 +47,8 @@ END-PR;
 Dcl-pr biereGetDescription Varchar(256) Extproc;
   pObject Pointer;
 END-PR;
+
+//*******************************************
+dcl-pr beerGetById Pointer Extproc;
+  pBeerId Int(5) Const;
+end-pr;

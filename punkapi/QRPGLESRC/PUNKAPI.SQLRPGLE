@@ -21,7 +21,7 @@
 //bieresGet();
 //bieresGet(beerName);
 //bieresGet(beerName:page:parPage);
-//bieresGetId();
+//bieresGetById();
 
 //bieresCount(pointer); - Retourne compte de l'appel de l'API GetBieres
 //currentElementPtr = beersElementAt(arrayPointer:index);
@@ -78,6 +78,27 @@ Dcl-proc bieresGet Export;
   Return JSON;
 
 END-PROC;
+
+//*******************************************
+dcl-proc beerGetById Export;
+  dcl-pi beerGetById Pointer;
+    pBeerId Int(5) Const;
+  end-pi;
+
+  dcl-s response Varchar(16000);
+  Dcl-s URL Varchar(128);
+  Dcl-s JSON Pointer;
+
+  URL = 'https://api.punkapi.com/v2/beers/' + %Char(pBeerId);
+
+  Exec sql
+    Set :Response = Systools.Httpgetclob(:URL, '');
+
+  JSON = json_parseString(response);
+
+  Return JSON;
+
+end-proc;
 
 Dcl-proc bieresSucces Export;
   Dcl-pi bieresSucces Ind End-pi;
